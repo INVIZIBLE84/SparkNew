@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -13,7 +14,7 @@ export default function LaunchPage() {
       const currentUser = await getCurrentUser();
 
       // Wait for a minimum splash screen time before redirecting
-      await new Promise(resolve => setTimeout(resolve, 2500)); 
+      await new Promise(resolve => setTimeout(resolve, 10000)); 
 
       if (!currentUser) {
         router.replace('/login');
