@@ -47,19 +47,15 @@ export default function LaunchPage() {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden">
       <div className="absolute inset-0 w-full h-full bg-black/30 backdrop-blur-sm"></div>
       <div className="z-10 text-center animate-in fade-in zoom-in-90 duration-1000">
-        <svg width="140" height="140" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-6 filter drop-shadow-lg">
-          <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2Z" stroke="url(#paint0_linear_1_2)" strokeWidth="1.5"/>
-          <path d="M9.08984 8.99991C9.08984 7.89534 9.98522 6.99997 11.0898 6.99997H14.8898C15.9944 6.99997 16.8898 7.89534 16.8898 8.99991C16.8898 10.1045 15.9944 11 14.8898 11H11.0898C9.98522 11 9.08984 11.8954 9.08984 13C9.08984 14.1045 9.98522 15 11.0898 15H14.8898C15.9944 15 16.8898 15.8954 16.8898 17C16.8898 18.1045 15.9944 19 14.8898 19H11.0898" stroke="url(#paint1_linear_1_2)" strokeWidth="1.5" strokeLinecap="round"/>
-          <defs>
-            <linearGradient id="paint0_linear_1_2" x1="12" y1="2" x2="12" y2="22" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FFFFFF" stopOpacity="0.5"/>
-              <stop offset="1" stopColor="#FFFFFF" stopOpacity="0"/>
-            </linearGradient>
-            <linearGradient id="paint1_linear_1_2" x1="12.9898" y1="7" x2="12.9898" y2="19" gradientUnits="userSpaceOnUse">
-              <stop stopColor="#FFFFFF"/>
-              <stop offset="1" stopColor="#FFFFFF" stopOpacity="0.6"/>
-            </linearGradient>
-          </defs>
+        <svg width="140" height="140" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto mb-6 filter drop-shadow-lg">
+            <defs>
+                <linearGradient id="sparkle" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="hsla(180, 100%, 90%, 1)" />
+                    <stop offset="100%" stopColor="hsla(180, 80%, 60%, 1)" />
+                </linearGradient>
+            </defs>
+            <path d="M48 16C48 8.26801 41.732 2 34 2C26.268 2 20 8.26801 20 16V24" stroke="url(#sparkle)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M16 48C16 55.732 22.268 62 30 62C37.732 62 44 55.732 44 48V40" stroke="url(#sparkle)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
         <p className="mt-4 text-lg text-blue-300/80 animate-pulse">
           Launching...
