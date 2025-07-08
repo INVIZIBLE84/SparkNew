@@ -6,6 +6,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar"; // Side
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/layout/header";
 import { AppSidebar } from "@/components/layout/sidebar";
+import CustomCursor from "@/components/ui/custom-cursor";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -16,8 +17,8 @@ export const metadata: Metadata = {
   title: "S.P.A.R.K.",
   description: "Strategic Platform for Analytics, Reports & Knowledgeflow",
   icons: {
-    icon: '/pogo.png',
-    apple: '/pogo.png',
+    icon: '/logo.png',
+    apple: '/logo.png',
   }
 };
 
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} font-sans antialiased`}>
+        <CustomCursor />
         <SidebarProvider> {/* SidebarProvider wraps AppSidebar and SidebarInset */}
           <AppSidebar />
           <SidebarInset>
