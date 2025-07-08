@@ -50,8 +50,8 @@ export default function LaunchPage() {
       <div className="z-10 text-center animate-in fade-in zoom-in-90 duration-1000">
         <Image
             src="/pogo.png"
-            alt="S.P.A.R.K. Logo"
-            data-ai-hint="spark app logo"
+            alt="App Logo"
+            data-ai-hint="s logo modern"
             width={140}
             height={140}
             className="mx-auto mb-6 filter drop-shadow-lg"
