@@ -1,19 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
-  <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:hsl(180 100% 95%);stop-opacity:1" />
-      <stop offset="100%" style="stop-color:hsl(180 100% 25%);stop-opacity:1" />
-    </linearGradient>
-     <linearGradient id="grad2" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:hsl(120 61% 50%);stop-opacity:1" />
-      <stop offset="100%" style="stop-color:hsl(300 100% 25%);stop-opacity:1" />
-    </linearGradient>
-    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="60" />
-    </filter>
-  </defs>
-  <rect width="1920" height="1080" fill="hsl(0 0% 100%)" />
-  <circle cx="400" cy="300" r="400" fill="url(#grad1)" filter="url(#blur)" opacity="0.3" />
-  <circle cx="1600" cy="800" r="350" fill="url(#grad2)" filter="url(#blur)" opacity="0.2" />
-  <circle cx="900" cy="900" r="250" fill="hsl(180 100% 25%)" filter="url(#blur)" opacity="0.15" />
+<svg id="visual" viewBox="0 0 1920 1080" width="1920" height="1080" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
+    <defs>
+        <filter id="blur1" x="-10%" y="-10%" width="120%" height="120%">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"></feBlend>
+            <feGaussianBlur stdDeviation="327" result="effect1_foregroundBlur"></feGaussianBlur>
+        </filter>
+    </defs>
+    <rect width="1920" height="1080" fill="hsl(180, 100%, 88%)"></rect>
+    <g filter="url(#blur1)">
+        <circle cx="1798" cy="1040" fill="hsl(300, 100%, 75%)" r="727"></circle>
+        <circle cx="152" cy="723" fill="hsl(180, 100%, 88%)" r="727"></circle>
+        <circle cx="888" cy="618" fill="hsl(300, 100%, 75%)" r="727"></circle>
+        <circle cx="1387" cy="189" fill="hsl(300, 100%, 75%)" r="727"></circle>
+        <circle cx="346" cy="151" fill="hsl(180, 100%, 88%)" r="727"></circle>
+        <circle cx="1009" cy="85" fill="hsl(300, 100%, 75%)" r="727"></circle>
+    </g>
 </svg>
