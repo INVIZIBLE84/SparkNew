@@ -135,9 +135,9 @@ let sampleDocuments: Document[] = [
         status: 'Uploaded', fileUrl: '/mock/CS_Dept_Fall24_Schedule.xlsx', fileSize: 45 * 1024, fileMimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', version: 1, isArchived: false,
     },
     {
-        id: 'doc-logo', name: 'S.P.A.R.K._Logo.svg', type: 'Other',
+        id: 'doc-sogo', name: 'S.P.A.R.K._sogo.svg', type: 'Other',
         uploadedBy: { id: 'admin001', name: 'Admin User', role: 'admin' }, uploadDate: '2024-07-01T09:00:00Z',
-        metadata: { department: 'Administration', tags: ['branding', 'logo'] },
+        metadata: { department: 'Administration', tags: ['branding', 'sogo'] },
         status: 'Uploaded', fileUrl: '/Nexuss.png', fileSize: 120 * 1024, fileMimeType: 'image/svg+xml', version: 1, isArchived: false,
     },
      {

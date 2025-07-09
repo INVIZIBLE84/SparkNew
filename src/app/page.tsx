@@ -47,7 +47,7 @@ export default function LaunchPage() {
     <div className="flex items-center justify-center min-h-screen bg-black text-white overflow-hidden">
       <div className="z-10 text-center animate-in fade-in zoom-in-90 duration-1000">
         <video
-          src="/logo-animation.mp4"
+          src="/pogo-animation.mp4"
           width="280"
           height="280"
           autoPlay

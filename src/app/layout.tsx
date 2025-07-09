@@ -13,8 +13,8 @@ export const metadata: Metadata = {
   title: "S.P.A.R.K.",
   description: "Strategic Platform for Analytics, Reports & Knowledgeflow",
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: '/sogo.png',
+    apple: '/sogo.png',
   }
 };
 

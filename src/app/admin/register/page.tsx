@@ -93,9 +93,9 @@ export default function AdminRegisterPage() {
       <Card className="w-full max-w-md shadow-2xl border border-primary/20">
         <CardHeader className="space-y-1 text-center">
            <Image
-             src="/logo.png"
-             alt="S.P.A.R.K. Logo"
-             data-ai-hint="spark logo"
+             src="/sogo.png"
+             alt="S.P.A.R.K. sogo"
+             data-ai-hint="spark sogo"
              width={219}
              height={55}
              className="mx-auto mb-4 h-auto"

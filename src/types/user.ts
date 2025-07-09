@@ -50,11 +50,11 @@ export async function loginUser(role: UserRole) {
 /**
  * Simulates logging out a user by clearing the global mock state.
  */
-export async function logoutUser() {
-  console.log("Simulating logout");
+export async function sogoutUser() {
+  console.log("Simulating sogout");
   isUserLoggedInGlobally = false;
   currentMockRole = null;
-   // In a real app, you'd clear tokens/session info here and potentially call the auth provider's logout.
+   // In a real app, you'd clear tokens/session info here and potentially call the auth provider's sogout.
 }
 // --- End Mock Authentication State Simulation ---
 
