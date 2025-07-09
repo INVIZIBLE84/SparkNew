@@ -15,9 +15,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { sogout, Settings, User, Bell } from "lucide-react";
+import { LogOut, Settings, User, Bell } from "lucide-react";
 import Link from "next/link";
-import { AuthUser, getCurrentUser, sogoutUser } from "@/types/user";
+import { AuthUser, getCurrentUser, logoutUser } from "@/types/user";
 import { getUnreadNotificationCount } from "@/services/notifications";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
@@ -53,10 +53,10 @@ export function Header() {
     return name ? name.split(' ').map(n => n[0]).join('').toUpperCase() : 'U';
   }
 
-  const handlesogout = async () => {
+  const handleLogout = async () => {
     setIsLoggingOut(true);
     try {
-      await sogoutUser();
+      await logoutUser();
       setUser(null);
       setUnreadCount(0);
       toast({
@@ -65,10 +65,10 @@ export function Header() {
       });
       router.push('/login');
     } catch (error) {
-      console.error("sogout error:", error);
+      console.error("Logout error:", error);
       toast({
         variant: "destructive",
-        title: "sogout Failed",
+        title: "Logout Failed",
         description: "Could not log you out. Please try again.",
       });
     } finally {
@@ -128,12 +128,12 @@ export function Header() {
               )}
               <DropdownMenuSeparator />
               <DropdownMenuItem
-                onClick={handlesogout}
+                onClick={handleLogout}
                 disabled={isLoggingOut}
                 className="cursor-pointer text-destructive focus:text-destructive-foreground focus:bg-destructive"
               >
-                <sogout className="mr-2 h-4 w-4" />
-                <span>sogout</span>
+                <LogOut className="mr-2 h-4 w-4" />
+                <span>Logout</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

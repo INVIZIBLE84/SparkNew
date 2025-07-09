@@ -4,7 +4,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image"; // Import next/image
-import { usePathname, useRouter } from "next/navigation"; // Import useRouter
+import { useRouter } from "next/navigation"; // Import useRouter
 import {
   Sidebar,
   SidebarContent,
@@ -15,9 +15,9 @@ import {
   SidebarFooter,
   SidebarTrigger, // Keep for consistency if needed elsewhere, though header has one
 } from "@/components/ui/sidebar";
-import { BarChart3, DollarSign, CheckCircle, FileText, User as UserIcon, Settings, LayoutDashboard, sogout, Bell, CalendarClock, ShieldCheck, DatabaseZap, BellRing as BellRingIconLucide, Activity, BarChartBig } from "lucide-react"; // Renamed User to UserIcon, BellRing to BellRingIconLucide
+import { BarChart3, DollarSign, CheckCircle, FileText, User as UserIcon, Settings, LayoutDashboard, LogOut, Bell, CalendarClock, ShieldCheck, DatabaseZap, BellRing as BellRingIconLucide, Activity, BarChartBig } from "lucide-react"; // Renamed User to UserIcon, BellRing to BellRingIconLucide
 import { cn } from "@/lib/utils";
-import { UserRole, getCurrentUser, sogoutUser, AuthUser } from "@/types/user"; // Import UserRole, fetch function, and sogoutUser
+import { UserRole, getCurrentUser, logoutUser, AuthUser } from "@/types/user"; // Import UserRole, fetch function, and logoutUser
 import { Skeleton } from "@/components/ui/skeleton"; // Import Skeleton
 import { Separator } from "@/components/ui/separator"; // Import Separator
 import { useToast } from "@/hooks/use-toast"; // Import useToast
@@ -64,7 +64,7 @@ export function AppSidebar() {
   const { toast } = useToast(); // Hook for toasts
   const [currentUser, setCurrentUser] = React.useState<AuthUser | null>(null); // Changed to store full user object
   const [isLoading, setIsLoading] = React.useState(true);
-  const [isLoggingOut, setIsLoggingOut] = React.useState(false); // State for sogout operation
+  const [isLoggingOut, setIsLoggingOut] = React.useState(false); // State for logout operation
 
 
    // Fetch user role on component mount and path change
@@ -89,10 +89,10 @@ export function AppSidebar() {
   const adminNavItems = filteredNavItems.filter(item => item.isAdminSection && !item.isDashboardLink); // Exclude the main admin dashboard link here
 
 
-  const handlesogout = async () => {
-      setIsLoggingOut(true); // Indicate sogout in progress
+  const handleLogout = async () => {
+      setIsLoggingOut(true); // Indicate logout in progress
       try {
-          await sogoutUser(); // Call the simulated sogout function
+          await logoutUser(); // Call the simulated logout function
           setCurrentUser(null); // Clear local user state
           toast({
               title: "Logged Out",
@@ -100,10 +100,10 @@ export function AppSidebar() {
           });
           router.push('/login'); // Redirect to login page
       } catch (error) {
-           console.error("sogout error:", error);
+           console.error("Logout error:", error);
            toast({
                variant: "destructive",
-               title: "sogout Failed",
+               title: "Logout Failed",
                description: "Could not log you out. Please try again.",
            });
            setIsLoggingOut(false); // Reset loading state on error
@@ -152,9 +152,9 @@ export function AppSidebar() {
       <SidebarHeader className="flex flex-col items-center justify-center p-4"> {/* Centering content */}
          <Link href="/" className="flex flex-col items-center gap-2 overflow-hidden">
              <Image
-                src="/sogo.png"
-                alt="S.P.A.R.K. sogo"
-                data-ai-hint="spark sogo"
+                src="/logo.png"
+                alt="S.P.A.R.K. logo"
+                data-ai-hint="spark logo"
                 width={700}
                 height={176}
                 className="h-auto max-w-full group-data-[collapsible=icon]:w-[40px] group-data-[collapsible=icon]:h-auto"
@@ -208,13 +208,13 @@ export function AppSidebar() {
          <SidebarMenu>
             <SidebarMenuItem>
                  <SidebarMenuButton
-                   tooltip="sogout"
+                   tooltip="Logout"
                    className="text-sidebar-foreground hover:bg-destructive/20 hover:text-destructive"
                     disabled={isLoading || !currentUser || isLoggingOut}
-                    onClick={handlesogout}
+                    onClick={handleLogout}
                  >
-                    <sogout />
-                    <span className="group-data-[collapsible=icon]:hidden">sogout</span>
+                    <LogOut />
+                    <span className="group-data-[collapsible=icon]:hidden">Logout</span>
                  </SidebarMenuButton>
             </SidebarMenuItem>
          </SidebarMenu>
