@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from 'react';
@@ -36,7 +37,7 @@ const CustomCursor = () => {
         el.removeEventListener('mouseleave', handleMouseLeave);
       });
     };
-  }, [hasMoved]);
+  }, []); // Removed `hasMoved` from dependencies to prevent infinite loop
 
   return (
     <>
