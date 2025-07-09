@@ -91,16 +91,18 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-background via-muted/50 to-background p-4">
-      <Card className="w-full max-w-sm shadow-2xl border border-primary/20 overflow-hidden relative">
-        <Image
-          src="https://placehold.co/600x400.png"
-          alt="Abstract background"
-          data-ai-hint="abstract background"
-          fill
-          className="absolute inset-0 object-cover w-full h-full z-0 opacity-10"
-        />
-        <div className="relative z-10 bg-card/80 backdrop-blur-sm">
+    <div className="relative flex items-center justify-center min-h-screen w-full">
+      <Image
+        src="https://placehold.co/1920x1080.png"
+        alt="Abstract background"
+        data-ai-hint="abstract background"
+        fill
+        className="absolute inset-0 object-cover w-full h-full z-0"
+      />
+      <div className="absolute inset-0 bg-black/30 z-10" />
+
+      <Card className="w-full max-w-sm shadow-2xl border border-primary/20 overflow-hidden relative z-20 bg-background/80 backdrop-blur-lg">
+        <div className="relative z-10">
           <CardHeader className="space-y-1 text-center">
             <Image
               src="/sogo.png"
