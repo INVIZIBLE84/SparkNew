@@ -6,7 +6,7 @@ import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar";
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/layout/header";
 import { AppSidebar } from "@/components/layout/sidebar";
-import CustomCursor from "@/components/ui/custom-cursor";
+import SmoothCursor from "@/components/ui/smooth-cursor";
 
 const NO_LAYOUT_PATHS = ["/", "/login", "/admin/register"];
 
@@ -17,7 +17,7 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <CustomCursor />
+      {showLayout && <SmoothCursor />}
       {showLayout ? (
         <SidebarProvider>
           <AppSidebar />
