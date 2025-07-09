@@ -17,7 +17,6 @@ export function MainLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {showLayout && <SmoothCursor />}
       {showLayout ? (
         <SidebarProvider>
           <AppSidebar />
