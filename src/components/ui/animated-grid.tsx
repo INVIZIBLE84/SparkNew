@@ -7,8 +7,10 @@ import { cn } from "@/lib/utils";
 
 export const AnimatedGrid = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
     const handleMouseMove = (event: MouseEvent) => {
       setMousePosition({ x: event.clientX, y: event.clientY });
     };
@@ -64,7 +66,7 @@ export const AnimatedGrid = () => {
         {/* Grid */}
         <div className="absolute inset-0 z-0">
             <div className="grid grid-cols-[repeat(auto-fill,50px)] w-full">
-            {Array.from({ length: rows * cols }).map((_, i) =>
+            {hasMounted && Array.from({ length: rows * cols }).map((_, i) =>
                 createTile(Math.floor(i / cols), i % cols)
             )}
             </div>
