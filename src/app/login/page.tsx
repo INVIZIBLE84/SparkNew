@@ -21,6 +21,7 @@ import { authenticateUser } from "@/services/auth"; // Import mock authenticatio
 import { loginUser, getCurrentUser, UserRole } from "@/types/user"; // Import login simulation
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image"; // Import next/image
+import { AnimatedGrid } from "@/components/ui/animated-grid";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -91,85 +92,77 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen w-full">
-      <Image
-        src="/abstract-bg.svg"
-        alt="Abstract background"
-        fill
-        className="absolute inset-0 object-cover w-full h-full z-0"
-        priority
-      />
-      <div className="absolute inset-0 bg-background/30 z-10" />
-
-      <Card className="w-full max-w-sm shadow-2xl border border-primary/20 overflow-hidden relative z-20 bg-background/80 backdrop-blur-lg">
-        <div className="relative z-10">
-          <CardHeader className="space-y-1 text-center">
-            <Image
-              src="/sogo.png"
-              alt="S.P.A.R.K. sogo"
-              data-ai-hint="spark sogo"
-              width={219}
-              height={55}
-              className="mx-auto mb-4 h-auto"
-              priority
-            />
-            <CardTitle className="text-2xl font-bold text-primary">Login</CardTitle>
-            <CardDescription>
-              Enter your username and password to access your dashboard.
-            </CardDescription>
-          </CardHeader>
-          <form onSubmit={handleLogin}>
-            <CardContent className="space-y-4">
-              {error && (
-                <Alert variant="destructive">
-                  <AlertCircle className="h-4 w-4" />
-                  <AlertTitle>Login Failed</AlertTitle>
-                  <AlertDescription>{error}</AlertDescription>
-                </Alert>
-              )}
-              <div className="space-y-2">
-                <Label htmlFor="username">Username</Label>
-                <Input
-                  id="username"
-                  type="text"
-                  placeholder="Your unique username"
-                  required
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  disabled={isLoading}
-                  className="bg-background/80"
+    <div className="relative flex items-center justify-center min-h-screen w-full bg-background overflow-hidden">
+        <AnimatedGrid />
+        <Card className="w-full max-w-sm shadow-2xl border border-primary/20 overflow-hidden relative z-20 bg-background/80 backdrop-blur-lg">
+            <div className="relative z-10">
+            <CardHeader className="space-y-1 text-center">
+                <Image
+                src="/sogo.png"
+                alt="S.P.A.R.K. sogo"
+                data-ai-hint="spark sogo"
+                width={219}
+                height={55}
+                className="mx-auto mb-4 h-auto"
+                priority
                 />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  placeholder="Your secure password"
-                  required
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  disabled={isLoading}
-                  className="bg-background/80"
-                />
-              </div>
-            </CardContent>
-            <CardFooter className="flex flex-col gap-2">
-              <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled={isLoading}>
-                {isLoading ? (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <LogIn className="mr-2 h-4 w-4" />
+                <CardTitle className="text-2xl font-bold text-primary">Login</CardTitle>
+                <CardDescription>
+                Enter your username and password to access your dashboard.
+                </CardDescription>
+            </CardHeader>
+            <form onSubmit={handleLogin}>
+                <CardContent className="space-y-4">
+                {error && (
+                    <Alert variant="destructive">
+                    <AlertCircle className="h-4 w-4" />
+                    <AlertTitle>Login Failed</AlertTitle>
+                    <AlertDescription>{error}</AlertDescription>
+                    </Alert>
                 )}
-                {isLoading ? "Logging in..." : "Login"}
-              </Button>
-               <p className="text-xs text-muted-foreground text-center mt-2">
-                  Forgot your password? Contact Administrator.
-               </p>
-            </CardFooter>
-          </form>
-        </div>
-      </Card>
+                <div className="space-y-2">
+                    <Label htmlFor="username">Username</Label>
+                    <Input
+                    id="username"
+                    type="text"
+                    placeholder="Your unique username"
+                    required
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    disabled={isLoading}
+                    className="bg-background/80"
+                    />
+                </div>
+                <div className="space-y-2">
+                    <Label htmlFor="password">Password</Label>
+                    <Input
+                    id="password"
+                    type="password"
+                    placeholder="Your secure password"
+                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    disabled={isLoading}
+                    className="bg-background/80"
+                    />
+                </div>
+                </CardContent>
+                <CardFooter className="flex flex-col gap-2">
+                <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" disabled={isLoading}>
+                    {isLoading ? (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                    <LogIn className="mr-2 h-4 w-4" />
+                    )}
+                    {isLoading ? "Logging in..." : "Login"}
+                </Button>
+                <p className="text-xs text-muted-foreground text-center mt-2">
+                    Forgot your password? Contact Administrator.
+                </p>
+                </CardFooter>
+            </form>
+            </div>
+        </Card>
     </div>
   );
 }
