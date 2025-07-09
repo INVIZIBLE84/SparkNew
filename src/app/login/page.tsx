@@ -93,13 +93,13 @@ export default function LoginPage() {
   return (
     <div className="relative flex items-center justify-center min-h-screen w-full">
       <Image
-        src="https://placehold.co/1920x1080.png"
+        src="/abstract-bg.svg"
         alt="Abstract background"
-        data-ai-hint="abstract background"
         fill
         className="absolute inset-0 object-cover w-full h-full z-0"
+        priority
       />
-      <div className="absolute inset-0 bg-black/30 z-10" />
+      <div className="absolute inset-0 bg-background/30 z-10" />
 
       <Card className="w-full max-w-sm shadow-2xl border border-primary/20 overflow-hidden relative z-20 bg-background/80 backdrop-blur-lg">
         <div className="relative z-10">
