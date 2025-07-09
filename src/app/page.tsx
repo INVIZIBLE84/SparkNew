@@ -44,8 +44,7 @@ export default function LaunchPage() {
   }, [router]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden">
-      <div className="absolute inset-0 w-full h-full bg-black/30 backdrop-blur-sm"></div>
+    <div className="flex items-center justify-center min-h-screen bg-black text-white overflow-hidden">
       <div className="z-10 text-center animate-in fade-in zoom-in-90 duration-1000">
         <video
           src="/logo-animation.mp4"
