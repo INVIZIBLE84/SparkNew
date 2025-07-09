@@ -4,7 +4,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image"; // Import next/image
-import { useRouter } from "next/navigation"; // Import useRouter
+import { usePathname, useRouter } from "next/navigation"; // Import useRouter
 import {
   Sidebar,
   SidebarContent,
