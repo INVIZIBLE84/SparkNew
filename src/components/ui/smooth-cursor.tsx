@@ -6,7 +6,8 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const SmoothCursor = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const cursorSize = isHovered ? 40 : 20; // Smaller base size
+  const [hasMounted, setHasMounted] = useState(false); // State to prevent SSR mismatch
+  const cursorSize = isHovered ? 40 : 20;
 
   const mouse = {
     x: useMotionValue(0),
@@ -19,21 +20,19 @@ const SmoothCursor = () => {
     y: useSpring(mouse.y, smoothOptions),
   };
 
-  const manageMouseMove = (e: MouseEvent) => {
-    const { clientX, clientY } = e;
-    mouse.x.set(clientX - cursorSize / 2); // Center the cursor
-    mouse.y.set(clientY - cursorSize / 2);
-  };
-
-  const manageMouseOver = () => {
-    setIsHovered(true);
-  };
-
-  const manageMouseLeave = () => {
-    setIsHovered(false);
-  };
-
   useEffect(() => {
+    // Set hasMounted to true only on the client
+    setHasMounted(true);
+
+    const manageMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      mouse.x.set(clientX - cursorSize / 2);
+      mouse.y.set(clientY - cursorSize / 2);
+    };
+
+    const manageMouseOver = () => setIsHovered(true);
+    const manageMouseLeave = () => setIsHovered(false);
+
     window.addEventListener("mousemove", manageMouseMove);
 
     const interactiveElements = document.querySelectorAll(
@@ -56,8 +55,13 @@ const SmoothCursor = () => {
       });
       document.body.classList.remove("cursor-none");
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cursorSize]);
+
+  // Don't render anything on the server or during the initial client render
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <motion.div
