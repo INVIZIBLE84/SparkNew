@@ -21,6 +21,7 @@ import { AuthUser, getCurrentUser, logoutUser } from "@/types/user";
 import { getUnreadNotificationCount } from "@/services/notifications";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 export function Header() {
   const [user, setUser] = React.useState<AuthUser | null>(null);
@@ -80,7 +81,8 @@ export function Header() {
     <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background px-4 sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
       <SidebarTrigger className="md:hidden" />
 
-      <div className="flex w-full items-center justify-end gap-4">
+      <div className="flex w-full items-center justify-end gap-2">
+        <ThemeToggle />
         {!isLoadingUser && user && (
           <Button variant="ghost" size="icon" asChild>
             <Link href="/notifications" className="relative">
