@@ -42,8 +42,8 @@ body {
     --sidebar-border: 240 3.7% 15.9%; /* Darker Border */
     --sidebar-ring: 120 61% 50%; /* Lime Green */
     --glow-color-1: 180 100% 50%;
-    --glow-color-2: 300 100% 50%;
-    --glow-color-3: 120 100% 50%;
+    --glow-color-2: 180 100% 65%;
+    --glow-color-3: 180 100% 55%;
   }
 
   .dark {
@@ -80,8 +80,8 @@ body {
     --sidebar-border: 240 3.7% 15.9%; /* Darker Border */
     --sidebar-ring: 120 50% 60%; /* Lighter Lime Green */
     --glow-color-1: 180 100% 50%;
-    --glow-color-2: 300 100% 50%;
-    --glow-color-3: 120 100% 50%;
+    --glow-color-2: 180 100% 65%;
+    --glow-color-3: 180 100% 55%;
   }
 }
 
