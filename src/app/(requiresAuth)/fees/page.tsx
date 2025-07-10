@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { DollarSign, CheckCircle, Clock, AlertTriangle, Download, PlusCircle, Edit, Loader2, Search, Filter, Upload } from "lucide-react"; // Added Upload and Download
+import { DollarSign, CheckCircle, Clock, AlertTriangle, Download, PlusCircle, Edit, Loader2, Search, Filter, Upload, AlertCircle } from "lucide-react"; // Added Upload and Download
 import {
     getFeeDetails,
     getFeePayments,
@@ -332,12 +332,12 @@ export default function FeesPage() {
                              {feeDetails.breakdown.map((item, index) => (
                                 <TableRow key={index}>
                                     <TableCell>{item.description}</TableCell>
-                                    <TableCell className="text-right">${item.amount.toFixed(2)}</TableCell>
+                                    <TableCell className="text-right">₹{item.amount.toFixed(2)}</TableCell>
                                 </TableRow>
                              ))}
                               <TableRow className="border-t font-semibold">
                                 <TableCell>Total Due</TableCell>
-                                <TableCell className="text-right">${feeDetails.totalDue.toFixed(2)}</TableCell>
+                                <TableCell className="text-right">₹{feeDetails.totalDue.toFixed(2)}</TableCell>
                               </TableRow>
                         </TableBody>
                     </Table>
@@ -365,7 +365,7 @@ export default function FeesPage() {
                         paymentHistory.map((payment) => (
                         <TableRow key={payment.id}>
                             <TableCell>{format(new Date(payment.paymentDate), 'PPP')}</TableCell>
-                            <TableCell className="font-medium">${payment.amount.toFixed(2)}</TableCell>
+                            <TableCell className="font-medium">₹{payment.amount.toFixed(2)}</TableCell>
                             <TableCell className="hidden sm:table-cell text-muted-foreground">{payment.method || 'N/A'}</TableCell>
                             <TableCell className="hidden md:table-cell text-muted-foreground text-right">{payment.transactionId || 'N/A'}</TableCell>
                         </TableRow>
@@ -381,7 +381,7 @@ export default function FeesPage() {
                     {paymentHistory.length > 0 && (
                         <TableRow className="border-t border-dashed">
                             <TableCell colSpan={3} className="font-semibold">Total Paid</TableCell>
-                            <TableCell className="text-right font-bold">${feeDetails.totalPaid.toFixed(2)}</TableCell>
+                            <TableCell className="text-right font-bold">₹{feeDetails.totalPaid.toFixed(2)}</TableCell>
                         </TableRow>
                     )}
                     </TableBody>
@@ -464,10 +464,10 @@ export default function FeesPage() {
                                      </Badge>
                                 </TableCell>
                                 <TableCell className={`text-right font-semibold ${fd.balanceDue > 0 ? 'text-red-600' : 'text-green-600'}`}>
-                                    ${fd.balanceDue.toFixed(2)}
+                                    ₹{fd.balanceDue.toFixed(2)}
                                 </TableCell>
-                                <TableCell className="hidden md:table-cell text-right text-muted-foreground">${fd.totalPaid.toFixed(2)}</TableCell>
-                                <TableCell className="hidden lg:table-cell text-right text-muted-foreground">${fd.totalDue.toFixed(2)}</TableCell>
+                                <TableCell className="hidden md:table-cell text-right text-muted-foreground">₹{fd.totalPaid.toFixed(2)}</TableCell>
+                                <TableCell className="hidden lg:table-cell text-right text-muted-foreground">₹{fd.totalDue.toFixed(2)}</TableCell>
                                 <TableCell className="text-right">
                                     {/* Add Payment Dialog Trigger */}
                                     <Dialog open={showAddPaymentDialog && selectedStudentForPayment === fd.studentId} onOpenChange={(open) => { if (!open) setSelectedStudentForPayment(null); setShowAddPaymentDialog(open); }}>
@@ -583,7 +583,7 @@ function SummaryBox({ label, value, color }: SummaryBoxProps) {
 
     return (
         <div className={`flex flex-col items-center p-4 rounded-lg ${colorClass}`}>
-            <span className={`text-2xl font-bold ${valueColor}`}>${value.toFixed(2)}</span>
+            <span className={`text-2xl font-bold ${valueColor}`}>₹{value.toFixed(2)}</span>
             <span className="text-sm text-muted-foreground">{label}</span>
         </div>
     );

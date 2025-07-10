@@ -211,8 +211,8 @@ export default function AdminAnalyticsPage() {
             case 'fees':
                  return feeData ? (
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                        <SummaryCard title="Total Collected" value={`$${feeData.totalCollected.toLocaleString()}`} icon={<DollarSign className="text-green-500" />} />
-                        <SummaryCard title="Current Balance Due" value={`$${feeData.totalDueCurrent.toLocaleString()}`} icon={<DollarSign className="text-red-500" />} />
+                        <SummaryCard title="Total Collected" value={`₹${feeData.totalCollected.toLocaleString()}`} icon={<DollarSign className="text-green-500" />} />
+                        <SummaryCard title="Current Balance Due" value={`₹${feeData.totalDueCurrent.toLocaleString()}`} icon={<DollarSign className="text-red-500" />} />
                         <SummaryCard title="Overdue Count" value={feeData.overdueCount.toString()} icon={<AlertTriangle className="text-orange-500" />} />
                          <div className="md:col-span-2 lg:col-span-4">
                             <ChartCard title="Fee Collection Trend" description="Monthly fee collection vs. dues">
@@ -220,7 +220,7 @@ export default function AdminAnalyticsPage() {
                                     <LineChart data={feeData.collectionTrend}>
                                         <CartesianGrid vertical={false} />
                                         <XAxis dataKey="period" tickLine={false} axisLine={false} />
-                                        <YAxis tickFormatter={(value) => `$${value / 1000}k`} />
+                                        <YAxis tickFormatter={(value) => `₹${value / 1000}k`} />
                                         <ChartTooltip content={<ChartTooltipContent indicator="line" />} />
                                         <ChartLegend content={<ChartLegendContent />} />
                                         <Line type="monotone" dataKey="collected" stroke="var(--color-collected)" strokeWidth={2} dot={false} />
@@ -484,4 +484,3 @@ function AnalyticsSkeleton() {
          </div>
     );
 }
-

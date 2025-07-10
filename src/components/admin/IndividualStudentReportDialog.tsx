@@ -148,9 +148,9 @@ export default function IndividualStudentReportDialog({ isOpen, onOpenChange, re
                                 {reportData.feeDetails ? (
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm">
                                         <p><strong>Status:</strong> <Badge variant={getStatusStyle(reportData.feeDetails.status).variant} className={getStatusStyle(reportData.feeDetails.status).className}>{reportData.feeDetails.status}</Badge></p>
-                                        <p><strong>Balance Due:</strong> ${reportData.feeDetails.balanceDue.toFixed(2)}</p>
-                                        <p><strong>Total Due:</strong> ${reportData.feeDetails.totalDue.toFixed(2)}</p>
-                                        <p><strong>Total Paid:</strong> ${reportData.feeDetails.totalPaid.toFixed(2)}</p>
+                                        <p><strong>Balance Due:</strong> ₹{reportData.feeDetails.balanceDue.toFixed(2)}</p>
+                                        <p><strong>Total Due:</strong> ₹{reportData.feeDetails.totalDue.toFixed(2)}</p>
+                                        <p><strong>Total Paid:</strong> ₹{reportData.feeDetails.totalPaid.toFixed(2)}</p>
                                         {reportData.feeDetails.dueDate && <p><strong>Due Date:</strong> {format(new Date(reportData.feeDetails.dueDate), 'PP')}</p>}
                                     </div>
                                 ) : <p className="text-sm text-muted-foreground">No fee details available.</p>}
@@ -217,6 +217,3 @@ export default function IndividualStudentReportDialog({ isOpen, onOpenChange, re
         </Dialog>
     );
 }
-
-
-    

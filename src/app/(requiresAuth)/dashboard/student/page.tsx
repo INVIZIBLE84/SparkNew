@@ -180,8 +180,8 @@ export default function StudentDashboardPage() {
                         <CardContent>
                             {feeDetails ? (
                                 <>
-                                    <p className="text-sm font-medium">Balance Due: <span className={feeDetails.balanceDue > 0 ? "text-red-600" : "text-green-600"}>${feeDetails.balanceDue.toFixed(2)}</span></p>
-                                     <p className="text-xs text-muted-foreground">Total Due: ${feeDetails.totalDue.toFixed(2)}{feeDetails.dueDate ? ` | Due: ${format(new Date(feeDetails.dueDate), 'PP')}` : ''}</p>
+                                    <p className="text-sm font-medium">Balance Due: <span className={feeDetails.balanceDue > 0 ? "text-red-600" : "text-green-600"}>₹{feeDetails.balanceDue.toFixed(2)}</span></p>
+                                     <p className="text-xs text-muted-foreground">Total Due: ₹{feeDetails.totalDue.toFixed(2)}{feeDetails.dueDate ? ` | Due: ${format(new Date(feeDetails.dueDate), 'PP')}` : ''}</p>
                                 </>
                             ): <p className="text-sm text-muted-foreground">No fee details available.</p>}
                         </CardContent>

@@ -68,5 +68,3 @@ export async function generateIndividualStudentReport(studentId: string): Promis
         return null;
     }
 }
-
-    

@@ -79,7 +79,7 @@ const generateMockFeeTrend = (numPeriods: number): { period: string; collected: 
     for (let i = numPeriods - 1; i >= 0; i--) {
         const date = new Date(now.getFullYear(), now.getMonth() - i, 1);
         const period = format(date, 'MMM yyyy');
-        const due = 40000 + Math.random() * 20000;
+        const due = 4000000 + Math.random() * 2000000;
         const collected = due * (0.6 + Math.random() * 0.35);
         trend.push({
             period,
@@ -126,8 +126,8 @@ export async function getFeeAnalytics(filters?: AnalyticsFilters): Promise<FeeAn
     await new Promise(resolve => setTimeout(resolve, 250));
 
     return {
-        totalCollected: 55000 + Math.random() * 10000,
-        totalDueCurrent: 12000 + Math.random() * 5000,
+        totalCollected: 5500000 + Math.random() * 1000000,
+        totalDueCurrent: 1200000 + Math.random() * 500000,
         overdueCount: 8 + Math.floor(Math.random() * 5),
         collectionTrend: generateMockFeeTrend(6), // Last 6 months
     };
@@ -233,9 +233,9 @@ export async function exportAnalyticsReport(type: ReportType, filters?: Analytic
         csvContent = `Overall Percentage,${data.overallPercentage}\nAt Risk Count,${data.atRiskCount}\nCritical Count,${data.criticalCount}\n\n`;
     } else if (type === 'fees') {
         const data = await getFeeAnalytics(filters);
-        headers.push("Period", "Collected", "Due");
+        headers.push("Period", "Collected (₹)", "Due (₹)");
         data.collectionTrend.forEach(d => rows.push([d.period, d.collected.toString(), d.due.toString()]));
-        csvContent = `Total Collected,${data.totalCollected}\nCurrent Balance Due,${data.totalDueCurrent}\nOverdue Count,${data.overdueCount}\n\n`;
+        csvContent = `Total Collected (₹),${data.totalCollected}\nCurrent Balance Due (₹),${data.totalDueCurrent}\nOverdue Count,${data.overdueCount}\n\n`;
     } else if (type === 'clearance') {
         const data = await getClearanceAnalytics(filters);
         headers.push("Status", "Count");
@@ -263,5 +263,3 @@ export async function exportAnalyticsReport(type: ReportType, filters?: Analytic
 
     return csvContent;
 }
-
-    
