@@ -14,20 +14,20 @@ body {
     --card-foreground: 0 0% 98%; /* Almost White */
     --popover: 0 0% 5%; /* Matte Black */
     --popover-foreground: 0 0% 98%; /* Almost White */
-    --primary: 217 91% 60%; /* Professional Blue */
-    --primary-foreground: 210 40% 98%; /* Almost White */
+    --primary: 120 61% 50%; /* Vibrant Green */
+    --primary-foreground: 0 0% 10%; /* Dark text for contrast on green */
     --secondary: 217 33% 17%; /* Dark Blue */
     --secondary-foreground: 0 0% 98%; /* Almost White */
     --muted: 217 33% 17%; /* Dark Blue */
     --muted-foreground: 215 20% 65%; /* Muted Gray-Blue */
-    --accent: 217 91% 60%; /* Professional Blue */
-    --accent-foreground: 210 40% 98%; /* Almost White */
+    --accent: 120 61% 50%; /* Vibrant Green */
+    --accent-foreground: 0 0% 10%; /* Dark text for contrast on green */
     --destructive: 0 63% 31%; /* Dark Red */
     --destructive-foreground: 0 0% 98%; /* Almost White */
     --border: 217 33% 17%; /* Dark Blue */
     --input: 217 33% 17%; /* Dark Blue */
-    --ring: 217 91% 60%; /* Professional Blue */
-    --chart-1: 217 91% 60%; /* Professional Blue */
+    --ring: 120 61% 50%; /* Vibrant Green */
+    --chart-1: 120 61% 50%; /* Vibrant Green */
     --chart-2: 180 80% 35%; /* Teal */
     --chart-3: 300 80% 35%; /* Purple */
     --chart-4: 0 63% 31%; /* Dark Red */
@@ -35,15 +35,15 @@ body {
     --radius: 0.5rem;
     --sidebar-background: 0 0% 8%; /* Slightly Lighter Black for Sidebar */
     --sidebar-foreground: 0 0% 98%; /* Almost White for Sidebar Text */
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-primary: 120 61% 50%;
+    --sidebar-primary-foreground: 0 0% 10%;
     --sidebar-accent: 217 33% 17%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 12%; /* Darker Border */
-    --sidebar-ring: 217 91% 60%;
-    --glow-color-1: 217 91% 50%;
-    --glow-color-2: 217 91% 65%;
-    --glow-color-3: 217 91% 55%;
+    --sidebar-ring: 120 61% 50%;
+    --glow-color-1: 120 61% 40%;
+    --glow-color-2: 120 61% 55%;
+    --glow-color-3: 120 61% 45%;
   }
 }
 
