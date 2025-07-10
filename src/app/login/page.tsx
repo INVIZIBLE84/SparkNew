@@ -21,7 +21,6 @@ import { authenticateUser } from "@/services/auth"; // Import mock authenticatio
 import { loginUser, getCurrentUser, UserRole } from "@/types/user"; // Import login simulation
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image"; // Import next/image
-import { AnimatedGrid } from "@/components/ui/animated-grid";
 import { motion } from "framer-motion";
 
 export default function LoginPage() {
@@ -93,11 +92,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen w-full bg-background overflow-hidden" style={{ perspective: '1000px' }}>
-        <AnimatedGrid />
-        <motion.div
-            style={{ transformStyle: 'preserve-3d' }}
-        >
+    <div className="relative flex items-center justify-center min-h-screen w-full bg-background overflow-hidden">
         <Card className="w-full max-w-sm shadow-2xl overflow-hidden relative z-20 bg-card/80 backdrop-blur-lg border border-border/50">
             <div className="relative z-10 p-2">
             <CardHeader className="space-y-1 text-center">
@@ -166,10 +161,8 @@ export default function LoginPage() {
                 </CardFooter>
             </form>
             </div>
-            {/* This div is essential for the glow effect */}
             <div className="absolute inset-[-2px] -z-10 rounded-[calc(var(--radius)+2px)] bg-background" />
         </Card>
-        </motion.div>
     </div>
   );
 }
