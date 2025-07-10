@@ -96,10 +96,9 @@ export default function LoginPage() {
     <div className="relative flex items-center justify-center min-h-screen w-full bg-background overflow-hidden" style={{ perspective: '1000px' }}>
         <AnimatedGrid />
         <motion.div
-            whileHover={{ scale: 1.02 }}
             style={{ transformStyle: 'preserve-3d' }}
         >
-        <Card className="w-full max-w-sm shadow-2xl glow-border overflow-hidden relative z-20 bg-background/80 backdrop-blur-lg">
+        <Card className="w-full max-w-sm shadow-2xl overflow-hidden relative z-20 bg-card/80 backdrop-blur-lg border border-border/50">
             <div className="relative z-10 p-2">
             <CardHeader className="space-y-1 text-center">
                 <Image

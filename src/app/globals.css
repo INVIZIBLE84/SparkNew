@@ -7,81 +7,43 @@ body {
 }
 
 @layer base {
-  :root {
-    --background: 0 0% 100%; /* White */
-    --foreground: 240 10% 3.9%; /* Dark Gray */
-    --card: 0 0% 100%; /* White */
-    --card-foreground: 240 10% 3.9%; /* Dark Gray */
-    --popover: 0 0% 100%; /* White */
-    --popover-foreground: 240 10% 3.9%; /* Dark Gray */
-    --primary: 180 100% 25%; /* Teal */
-    --primary-foreground: 180 100% 95%; /* Light Teal/White */
-    --secondary: 300 100% 25%; /* Purple */
-    --secondary-foreground: 300 100% 95%; /* Light Purple/White */
-    --muted: 240 4.8% 95.9%; /* Light Gray */
-    --muted-foreground: 240 3.8% 46.1%; /* Medium Gray */
-    --accent: 120 61% 50%; /* Lime Green */
-    --accent-foreground: 120 60% 15%; /* Dark Green/Black */
-    --destructive: 0 84.2% 60.2%; /* Red */
-    --destructive-foreground: 0 0% 98%; /* Almost White */
-    --border: 240 5.9% 90%; /* Light Gray Border */
-    --input: 240 5.9% 90%; /* Light Gray Input */
-    --ring: 120 61% 50%; /* Lime Green */
-    --chart-1: 180 100% 25%; /* Teal */
-    --chart-2: 300 100% 25%; /* Purple */
-    --chart-3: 120 61% 50%; /* Lime Green */
-    --chart-4: 182 100% 74%; /* Electric Blue */
-    --chart-5: 210 40% 96.1%; /* Lighter Blue Gray */
-    --radius: 0.5rem;
-    --sidebar-background: 240 10% 3.9%; /* Dark Gray for Sidebar */
-    --sidebar-foreground: 0 0% 98%; /* Almost White for Sidebar Text */
-    --sidebar-primary: 180 100% 25%; /* Teal */
-    --sidebar-primary-foreground: 180 100% 95%; /* Light Teal/White */
-    --sidebar-accent: 120 61% 50%; /* Lime Green */
-    --sidebar-accent-foreground: 120 60% 15%; /* Dark Green/Black */
-    --sidebar-border: 240 3.7% 15.9%; /* Darker Border */
-    --sidebar-ring: 120 61% 50%; /* Lime Green */
-    --glow-color-1: 180 100% 50%;
-    --glow-color-2: 180 100% 65%;
-    --glow-color-3: 180 100% 55%;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%; /* Dark Gray */
+  :root, .dark {
+    --background: 0 0% 5%; /* Matte Black */
     --foreground: 0 0% 98%; /* Almost White */
-    --card: 240 10% 3.9%; /* Dark Gray */
+    --card: 0 0% 8%; /* Slightly Lighter Black */
     --card-foreground: 0 0% 98%; /* Almost White */
-    --popover: 240 10% 3.9%; /* Dark Gray */
+    --popover: 0 0% 5%; /* Matte Black */
     --popover-foreground: 0 0% 98%; /* Almost White */
-    --primary: 180 80% 35%; /* Slightly Lighter Teal */
-    --primary-foreground: 180 100% 95%; /* Light Teal/White */
-    --secondary: 300 80% 35%; /* Slightly Lighter Purple */
-    --secondary-foreground: 300 100% 95%; /* Light Purple/White */
-    --muted: 240 3.7% 15.9%; /* Darker Gray */
-    --muted-foreground: 240 5% 64.9%; /* Lighter Gray */
-    --accent: 120 50% 60%; /* Lighter Lime Green */
-    --accent-foreground: 120 60% 15%; /* Dark Green/Black */
-    --destructive: 0 62.8% 30.6%; /* Darker Red */
+    --primary: 217 91% 60%; /* Professional Blue */
+    --primary-foreground: 210 40% 98%; /* Almost White */
+    --secondary: 217 33% 17%; /* Dark Blue */
+    --secondary-foreground: 0 0% 98%; /* Almost White */
+    --muted: 217 33% 17%; /* Dark Blue */
+    --muted-foreground: 215 20% 65%; /* Muted Gray-Blue */
+    --accent: 217 91% 60%; /* Professional Blue */
+    --accent-foreground: 210 40% 98%; /* Almost White */
+    --destructive: 0 63% 31%; /* Dark Red */
     --destructive-foreground: 0 0% 98%; /* Almost White */
-    --border: 240 3.7% 15.9%; /* Darker Border */
-    --input: 240 3.7% 15.9%; /* Darker Input */
-    --ring: 120 50% 60%; /* Lighter Lime Green */
-    --chart-1: 180 80% 35%; /* Slightly Lighter Teal */
-    --chart-2: 300 80% 35%; /* Slightly Lighter Purple */
-    --chart-3: 120 50% 60%; /* Lighter Lime Green */
-    --chart-4: 182 80% 70%; /* Lighter Electric Blue */
-    --chart-5: 210 30% 20%; /* Darker Blue Gray */
-    --sidebar-background: 240 10% 3.9%; /* Dark Gray for Sidebar */
+    --border: 217 33% 17%; /* Dark Blue */
+    --input: 217 33% 17%; /* Dark Blue */
+    --ring: 217 91% 60%; /* Professional Blue */
+    --chart-1: 217 91% 60%; /* Professional Blue */
+    --chart-2: 180 80% 35%; /* Teal */
+    --chart-3: 300 80% 35%; /* Purple */
+    --chart-4: 0 63% 31%; /* Dark Red */
+    --chart-5: 215 20% 65%; /* Muted Gray-Blue */
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 8%; /* Slightly Lighter Black for Sidebar */
     --sidebar-foreground: 0 0% 98%; /* Almost White for Sidebar Text */
-    --sidebar-primary: 180 80% 35%; /* Slightly Lighter Teal */
-    --sidebar-primary-foreground: 180 100% 95%; /* Light Teal/White */
-    --sidebar-accent: 120 50% 60%; /* Lighter Lime Green */
-    --sidebar-accent-foreground: 120 60% 15%; /* Dark Green/Black */
-    --sidebar-border: 240 3.7% 15.9%; /* Darker Border */
-    --sidebar-ring: 120 50% 60%; /* Lighter Lime Green */
-    --glow-color-1: 180 100% 50%;
-    --glow-color-2: 180 100% 65%;
-    --glow-color-3: 180 100% 55%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 12%; /* Darker Border */
+    --sidebar-ring: 217 91% 60%;
+    --glow-color-1: 217 91% 50%;
+    --glow-color-2: 217 91% 65%;
+    --glow-color-3: 217 91% 55%;
   }
 }
 
