@@ -6,7 +6,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const SmoothCursor = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const cursorSize = isHovered ? 60 : 30; // Larger base size for better torch effect
+  const cursorSize = isHovered ? 40 : 20; // Smaller base size
 
   const mouse = {
     x: useMotionValue(0),
