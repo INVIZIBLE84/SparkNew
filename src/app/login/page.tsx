@@ -22,6 +22,7 @@ import { loginUser, getCurrentUser, UserRole } from "@/types/user"; // Import lo
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image"; // Import next/image
 import { AnimatedGrid } from "@/components/ui/animated-grid";
+import { motion } from "framer-motion";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -92,10 +93,14 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative flex items-center justify-center min-h-screen w-full bg-background overflow-hidden">
+    <div className="relative flex items-center justify-center min-h-screen w-full bg-background overflow-hidden" style={{ perspective: '1000px' }}>
         <AnimatedGrid />
-        <Card className="w-full max-w-sm shadow-2xl border border-primary/20 overflow-hidden relative z-20 bg-background/80 backdrop-blur-lg">
-            <div className="relative z-10">
+        <motion.div
+            whileHover={{ scale: 1.02 }}
+            style={{ transformStyle: 'preserve-3d' }}
+        >
+        <Card className="w-full max-w-sm shadow-2xl glow-border overflow-hidden relative z-20 bg-background/80 backdrop-blur-lg">
+            <div className="relative z-10 p-2">
             <CardHeader className="space-y-1 text-center">
                 <Image
                 src="/sogo.png"
@@ -162,7 +167,10 @@ export default function LoginPage() {
                 </CardFooter>
             </form>
             </div>
+            {/* This div is essential for the glow effect */}
+            <div className="absolute inset-[-2px] -z-10 rounded-[calc(var(--radius)+2px)] bg-background" />
         </Card>
+        </motion.div>
     </div>
   );
 }

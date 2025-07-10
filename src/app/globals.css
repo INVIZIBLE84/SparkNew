@@ -41,6 +41,9 @@ body {
     --sidebar-accent-foreground: 120 60% 15%; /* Dark Green/Black */
     --sidebar-border: 240 3.7% 15.9%; /* Darker Border */
     --sidebar-ring: 120 61% 50%; /* Lime Green */
+    --glow-color-1: 180 100% 50%;
+    --glow-color-2: 300 100% 50%;
+    --glow-color-3: 120 100% 50%;
   }
 
   .dark {
@@ -76,6 +79,9 @@ body {
     --sidebar-accent-foreground: 120 60% 15%; /* Dark Green/Black */
     --sidebar-border: 240 3.7% 15.9%; /* Darker Border */
     --sidebar-ring: 120 50% 60%; /* Lighter Lime Green */
+    --glow-color-1: 180 100% 50%;
+    --glow-color-2: 300 100% 50%;
+    --glow-color-3: 120 100% 50%;
   }
 }
 
@@ -88,5 +94,36 @@ body {
   }
   .cursor-none {
     cursor: none;
+  }
+}
+
+@layer utilities {
+  .glow-border {
+    position: relative;
+    overflow: hidden;
+  }
+  .glow-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: conic-gradient(
+      from 180deg at 50% 70%,
+      hsl(var(--glow-color-1)),
+      hsl(var(--glow-color-2)),
+      hsl(var(--glow-color-3)),
+      hsl(var(--glow-color-1))
+    );
+    filter: blur(30px);
+    transform: translate(-25%, 0);
+    animation: rotate 5s linear infinite;
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: translate(-25%, 0) rotate(360deg);
   }
 }
