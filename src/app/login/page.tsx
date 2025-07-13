@@ -16,7 +16,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { LogIn, Loader2, AlertCircle } from "lucide-react";
+import { LogIn, Loader2, AlertCircle, UserPlus } from "lucide-react";
 import { authenticateUser } from "@/services/auth";
 import { loginUser, getCurrentUser, UserRole } from "@/types/user";
 import { useToast } from "@/hooks/use-toast";
@@ -26,7 +26,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 export default function LoginPage() {
   const router = useRouter();
   const { toast } = useToast();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -66,7 +66,7 @@ export default function LoginPage() {
     setError(null);
 
     try {
-      const authResult = await authenticateUser(username, password);
+      const authResult = await authenticateUser(email, password);
 
       if (authResult.success && authResult.user) {
         await loginUser(authResult.user.role);
@@ -143,14 +143,14 @@ export default function LoginPage() {
                 </Alert>
             )}
             <div className="space-y-2">
-                <Label htmlFor="username">Username</Label>
+                <Label htmlFor="email">Email or Username</Label>
                 <Input
-                id="username"
+                id="email"
                 type="text"
-                placeholder="Your unique username"
+                placeholder="Enter your email or username"
                 required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 disabled={isLoading}
                 className="bg-background/80"
                 />
@@ -177,6 +177,16 @@ export default function LoginPage() {
                 <LogIn className="mr-2 h-4 w-4" />
                 )}
                 {isLoading ? "Logging in..." : "Login"}
+            </Button>
+            <Button
+                type="button"
+                variant="outline"
+                className="w-full"
+                onClick={() => router.push('/register')}
+                disabled={isLoading}
+            >
+                <UserPlus className="mr-2 h-4 w-4" />
+                Create New Account
             </Button>
             <p className="text-xs text-muted-foreground text-center mt-2">
                 Forgot your password? Contact Administrator.

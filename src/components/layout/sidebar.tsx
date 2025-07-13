@@ -124,24 +124,22 @@ export function AppSidebar() {
 
           return (
               <SidebarMenuItem key={item.href}>
-                <Link href={item.href} legacyBehavior passHref>
-                  <SidebarMenuButton
-                    asChild
-                    isActive={isActive || isAdminRootActive}
-                    tooltip={item.label}
-                    className={cn(
-                      "transition-colors duration-200",
-                       (isActive || isAdminRootActive)
-                        ? "bg-primary/10 text-primary hover:bg-primary/20"
-                        : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
-                    )}
-                  >
-                    <a>
-                      {item.icon}
-                      <span className="group-data-[collapsible=icon]:hidden">{item.label}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </Link>
+                <SidebarMenuButton
+                  asChild
+                  isActive={isActive || isAdminRootActive}
+                  tooltip={item.label}
+                  className={cn(
+                    "transition-colors duration-200",
+                     (isActive || isAdminRootActive)
+                      ? "bg-primary/10 text-primary hover:bg-primary/20"
+                      : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                  )}
+                >
+                  <Link href={item.href}>
+                    {item.icon}
+                    <span className="group-data-[collapsible=icon]:hidden">{item.label}</span>
+                  </Link>
+                </SidebarMenuButton>
               </SidebarMenuItem>
           );
         });
@@ -152,7 +150,7 @@ export function AppSidebar() {
       <SidebarHeader className="flex flex-col items-center justify-center p-4"> {/* Centering content */}
          <Link href="/" className="flex flex-col items-center gap-2 overflow-hidden">
              <Image
-                src="/logo.png"
+                src="/sogo.png"
                 alt="S.P.A.R.K. logo"
                 data-ai-hint="spark logo"
                 width={700}
